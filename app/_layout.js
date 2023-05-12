@@ -1,6 +1,5 @@
 import { Stack } from "expo-router";
 import { Pressable } from "react-native";
-import { Text } from "react-native";
 import { useRouter } from "expo-router";
 import TextFont from "../src/components/TextFont";
 

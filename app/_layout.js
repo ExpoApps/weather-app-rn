@@ -1,7 +1,13 @@
 import { Stack } from "expo-router";
+import { Pressable } from "react-native";
 import { Text } from "react-native";
+import { useRouter } from "expo-router";
 
 export default function RootLayout() {
+  const router = useRouter();
+  const handlePress = () => {
+    router.back();
+  };
   return (
     <Stack>
       <Stack.Screen
@@ -16,7 +22,9 @@ export default function RootLayout() {
           headerTitle: "",
           headerShadowVisible: false,
           headerLeft: (props) => (
-            <Text>{"< Back"}</Text>
+            <Pressable onPress={handlePress}>
+              <Text>{"< Back"}</Text>
+            </Pressable>
           ),
         }}
       ></Stack.Screen>

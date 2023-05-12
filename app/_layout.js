@@ -2,6 +2,7 @@ import { Stack } from "expo-router";
 import { Pressable } from "react-native";
 import { Text } from "react-native";
 import { useRouter } from "expo-router";
+import TextFont from "../src/components/TextFont";
 
 export default function RootLayout() {
   const router = useRouter();
@@ -20,10 +21,11 @@ export default function RootLayout() {
         name="details"
         options={{
           headerTitle: "",
+          headerTransparent: true,
           headerShadowVisible: false,
           headerLeft: (props) => (
             <Pressable onPress={handlePress}>
-              <Text>{"< Back"}</Text>
+              <TextFont>{"< Back"}</TextFont>
             </Pressable>
           ),
         }}

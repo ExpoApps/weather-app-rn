@@ -4,6 +4,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import GradientBackground from "../src/components/GradientBackground";
 import TextFont from "../src/components/TextFont";
 import axios from 'axios';
+import WeatherCard from "../src/components/WeatherCard";
 
 const MainPage = () => {
   const router = useRouter();
@@ -23,8 +24,9 @@ const MainPage = () => {
 
   return (
     <GradientBackground>
+      <WeatherCard />
       <TouchableOpacity onPress={handlePress}>
-        <TextFont>To Details</TextFont>
+        <TextFont>Forecast report</TextFont>
       </TouchableOpacity>
     </GradientBackground>
   );

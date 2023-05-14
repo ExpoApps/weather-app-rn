@@ -23,6 +23,7 @@ const MainPage = () => {
       queryFn: () => getWeatherDetails,
     })
   }
+  const { isLoading, error, data, fetchStatus, status } = weatherQuery;
   //console.log(weatherQuery.fetchStatus, weatherQuery.status);
 
   return (

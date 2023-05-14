@@ -3,8 +3,6 @@ import { Pressable } from "react-native";
 import { useRouter } from "expo-router";
 import TextFont from "../src/components/TextFont";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-//import { ReactQueryDevtools } from "@tanstack/react-query-devtools/build/lib/devtools";
 
 export default function RootLayout() {
   const router = useRouter();
@@ -33,7 +31,7 @@ export default function RootLayout() {
             headerTitle: "",
             headerTransparent: true,
             headerShadowVisible: false,
-            headerLeft: (props) => (
+            headerLeft: () => (
               <Pressable onPress={handlePress}>
                 <TextFont>{"< Back"}</TextFont>
               </Pressable>
@@ -41,7 +39,6 @@ export default function RootLayout() {
           }}
         ></Stack.Screen>
       </Stack>
-      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 }

@@ -2,10 +2,10 @@ import { View, StyleSheet } from 'react-native'
 import React from 'react'
 import TextFont from './TextFont'
 
-const WeatherCard = () => {
+const WeatherCard = ({data}) => {
   return (
     <View style={styles.container}>
-      <TextFont>WeatherCard</TextFont>
+      <TextFont>{JSON.stringify(data)}</TextFont>
     </View>
   )
 }

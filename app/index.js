@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "expo-router";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import GradientBackground from "../src/components/GradientBackground";
@@ -14,11 +14,11 @@ const MainPage = () => {
     router.push("details");
   };
   const [selectedCity, setSelectedCity] = useState('stockholm');
-
   const weatherQuery = useQuery({
-    queryKey: ["currentWeather"],
-    //queryFn: () => getWeather(selectedCity),
+    queryKey: [selectedCity],
+    queryFn: () => getWeather(selectedCity),
   })
+
   const queryClient = useQueryClient()
   /*function detailsQuery() {
     queryClient.prefetchQuery({
@@ -30,7 +30,7 @@ const MainPage = () => {
 
   return (
     <GradientBackground>
-      <WeatherCard />
+      <WeatherCard data={weatherQuery.data} />
       <CitySelect selectedCity={selectedCity} setSelectedCity={setSelectedCity} />
       <TouchableOpacity onPress={handlePress}>
         <TextFont>Forecast report</TextFont>

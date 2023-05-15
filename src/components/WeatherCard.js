@@ -1,11 +1,14 @@
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, ActivityIndicator } from 'react-native'
 import React from 'react'
 import TextFont from './TextFont'
 
-const WeatherCard = ({data}) => {
+const WeatherCard = ({data, isLoading}) => {
   return (
     <View style={styles.container}>
-      <TextFont>{JSON.stringify(data)}</TextFont>
+      { isLoading 
+        ? <ActivityIndicator size="large" color="white" />
+        : <TextFont>{JSON.stringify(data)}</TextFont>
+      }
     </View>
   )
 }

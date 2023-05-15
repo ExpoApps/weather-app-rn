@@ -18,7 +18,7 @@ const MainPage = () => {
 
   return (
     <GradientBackground>
-      <WeatherCard data={weatherQuery.data} />
+      <WeatherCard data={weatherQuery.data} isLoading={weatherQuery.isLoading} />
       <CitySelect selectedCity={selectedCity} setSelectedCity={setSelectedCity} />
       <TouchableOpacity onPress={handlePress}>
         <TextFont>Forecast report</TextFont>

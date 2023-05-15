@@ -1,15 +1,18 @@
-import { View } from "react-native";
+import { View, ActivityIndicator } from "react-native";
 import React from "react";
-import { useRouter } from "expo-router";
 import GradientBackground from "../src/components/GradientBackground";
 import TextFont from "../src/components/TextFont";
+import { useWeatherDetailsQuery } from "../src/api/weatherQueries";
 
 const DetailsPage = () => {
-  const router = useRouter();
+  const weatherQuery = useWeatherDetailsQuery('stockholm');
   return (
     <GradientBackground>
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <TextFont>Details</TextFont>
+        { weatherQuery.isLoading 
+          ? <ActivityIndicator size="large" color="white" />
+          : <TextFont>{JSON.stringify(weatherQuery.data)}</TextFont>
+        }
       </View>
     </GradientBackground>
   );

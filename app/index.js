@@ -8,11 +8,15 @@ import CitySelect from "../src/components/CitySelect";
 import { useWeatherQuery } from "../src/api/weatherQueries";
 
 const MainPage = () => {
+  const [selectedCity, setSelectedCity] = useState('stockholm');
   const router = useRouter();
   const handlePress = () => {
-    router.push("details");
+    router.push({
+      pathname: "details", 
+      params: {
+        cityName: selectedCity,
+      }});
   };
-  const [selectedCity, setSelectedCity] = useState('stockholm');
   const weatherQuery = useWeatherQuery(selectedCity);
   //const { isLoading, error, data, fetchStatus, status } = weatherQuery;
 
